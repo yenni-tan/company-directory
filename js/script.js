@@ -3,6 +3,33 @@ const gallery = $('#gallery');
 let people = new Array(); 
 
 /**
+ * Show/hide gallery item based on search input. If first and last name contain search input, display gallery item.
+ */
+function handleSearch() {
+    const searchInput = $('#search-input')[0].value;
+    console.log(searchInput);
+    people.forEach(person => {
+        const name = `#${person.name.first}-${person.name.last}-card`;
+        $(name).css('display', '');
+        if (!(person.name.first + ' ' + person.name.last).includes(searchInput)) {
+            $(name).css('display', 'none');
+        }
+    });
+}
+
+/**
+ * Set up search filter.
+ */
+const search = `<form action="#" method="get">
+<input type="search" id="search-input" class="search-input" placeholder="Search...">
+</form>`;
+$('.search-container').append(search);
+
+$('.search-input').keyup(() => {
+    handleSearch();
+})
+
+/**
  * Configure modal template and append to body.
  * Allow user to close modal by pressing close button. 
  */
