@@ -122,16 +122,17 @@ function configureGalleryItem(person, index) {
     const name = `${person.name.first}-${person.name.last}`;
 
     const id = `${name}-card`
-    const item = `<div class="card" id="${id}">
-        <div class="card-img-container">
-            <img class="card-img" src="${person.picture.thumbnail}" alt="profile picture">
-        </div>
-        <div class="card-info-container">
-            <h3 id="name" class="card-name cap">${name}</h3>
-            <p class="card-text">${person.email}</p>
-            <p class="card-text cap">${person.location.city}, ${person.location.state}</p>
-        </div>
-    </div>`;
+    const item = 
+        `<div class="card" id="${id}">
+            <div class="card-info-container">
+                <h3 id="name" class="card-name cap">${name}</h3>
+                <p class="card-text">${person.email}</p>
+                <p class="card-text cap">${person.location.city}, ${person.location.state}</p>
+            </div>
+            <div class="card-img-container">
+                <img class="card-img" src="${person.picture.thumbnail}" alt="profile picture">
+            </div>
+        </div>`;
     gallery.append(item);
     $(`#${id}`)
         .click(() => {
