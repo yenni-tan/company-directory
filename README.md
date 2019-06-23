@@ -1,2 +1,2 @@
 # company-directory
-Sample directory project using Fetch API
+Employee directory gallery using Fetch API & jQuery
